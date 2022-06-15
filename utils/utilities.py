@@ -160,11 +160,11 @@ def do_training(model, torch_dataset, torch_dataset_test, num_epochs=4, ckp_pth=
 
     # construct an optimizer
     params = [p for p in model.parameters() if p.requires_grad]
-    optimizer = torch.optim.SGD(params, lr=0.016,
-                                momentum=0.9, weight_decay=0.001)
+    optimizer = torch.optim.SGD(params, lr=0.01,
+                                momentum=0.5, weight_decay=0.001)
     # and a learning rate scheduler
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
-                                                   step_size=10,
+                                                   step_size=5,
                                                    gamma=0.9)
 
     start_epoch = 0
